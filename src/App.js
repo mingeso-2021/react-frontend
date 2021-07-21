@@ -12,6 +12,9 @@ function App() {
         <p>
           This line of code will change the workflow in git  
         </p>
+        <p>
+          This is another line of code to show hotfix flow in git
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
