@@ -13,7 +13,7 @@ pipeline {
 		stage('SonarQube analysis') {
     			steps {
 				echo "sonarqube with Frontend"
-				dir("/var/lib/jenkins/workspace/MingesoProyectFrontend"){
+				dir("/var/lib/jenkins/workspace/dev-frontend"){
 				    withSonarQubeEnv('sonarqube') { // Will pick the global server connection you have configured
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
