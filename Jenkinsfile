@@ -2,7 +2,7 @@
 pipeline {
 	agent any
 	environment{
-	    scannerHome = tool 'SonarScanner 3.1.0';
+	    scannerHome = tool 'sonar-scanner';
 	}
 	stages {
         stage('Init') {
