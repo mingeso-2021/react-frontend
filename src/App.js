@@ -9,7 +9,7 @@ import NavBar from './components/shared/NavBar.jsx'
 import Footer from './components/shared/Footer.js'
 import Diplomas from './components/Diplomas.js'
 import Evaluate from './components/Evaluate.js'
-import { BrowserRouter as Router,Route } from 'react-router-dom'
+
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
                 
                 <Diplomas />
                 <div className="foot">
-                <Evaluate />
+                
                 <Footer /> 
                 </div>
               </div>
@@ -49,15 +49,19 @@ function App() {
             <div className="page-container background" >
               <div className="content-wrap">
                 
+                <Evaluate />
+                <div className="foot">
                 
                 <Footer /> 
+                </div>
               </div>
             </div> 
           )  
         }}>
         </Route>
       
-    </Router> 
+      
+     </Router> 
       
   );
 }
