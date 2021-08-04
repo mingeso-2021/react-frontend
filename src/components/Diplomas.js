@@ -5,7 +5,7 @@ import '../assets/css/Diplomas.css'
 
 const Diplomas = () => {
   return (
-    <div className="container">
+    <div className="container-main">
       <div className="card">
         <div className="card-header">
           <p>Featured</p>

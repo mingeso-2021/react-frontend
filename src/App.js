@@ -19,7 +19,9 @@ function App() {
               <div className="content-wrap">
                 
                 <SendDocuments />
+                <div className="foot">
                 <Footer /> 
+                </div>
               </div>
             </div> 
           )  
@@ -31,7 +33,9 @@ function App() {
               <div className="content-wrap">
                 
                 <Diplomas />
+                <div className="foot">
                 <Footer /> 
+                </div>
               </div>
             </div> 
           )  
