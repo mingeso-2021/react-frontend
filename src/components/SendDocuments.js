@@ -8,6 +8,7 @@ import '../assets/css/SendDocuments.css'
 
 import logo_usach from '../assets/images/logo_usach.png'
 
+
 const baseStyle = {
   flex: 1,
   display: 'flex',
@@ -93,7 +94,7 @@ const SendDocuments = () => {
       <StyledDropzone />
       </div>
       <div className="row justify-content-center">
-        <button className="btn btn-size text-center">Enviar</button>
+        <button className="btn btn-size text-center "><span class="glyphicon glyphicon-ok" ></span>Enviar</button>
       </div>
     </div>
   )
