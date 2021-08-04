@@ -8,6 +8,8 @@ import SendDocuments  from './components/send-documents/SendDocuments.js'
 import NavBar from './components/shared/NavBar.jsx' 
 import Footer from './components/shared/Footer.js'
 import Diplomas from './components/Diplomas.js'
+import Evaluate from './components/Evaluate.js'
+import { BrowserRouter as Router,Route } from 'react-router-dom'
 
 function App() {
   return (
@@ -34,8 +36,21 @@ function App() {
                 
                 <Diplomas />
                 <div className="foot">
+                <Evaluate />
                 <Footer /> 
                 </div>
+              </div>
+            </div> 
+          )  
+        }}>
+        </Route>
+        <Route exact path="/evaluar" render = {() => {
+          return(
+            <div className="page-container background" >
+              <div className="content-wrap">
+                
+                
+                <Footer /> 
               </div>
             </div> 
           )  
