@@ -1,11 +1,13 @@
+// Native components
 import React from 'react';
-import './assets/css/App.css';
-
-import SendDocuments  from './components/SendDocuments.js'
-import NavBar from './components/NavBar.jsx' 
-import Footer from './components/Footer.js'
-import Diplomas from './components/Diplomas.js'
 import { BrowserRouter as Router,Route } from 'react-router-dom'
+// Styles
+import './assets/css/App.css';
+// Import components
+import SendDocuments  from './components/send-documents/SendDocuments.js'
+import NavBar from './components/shared/NavBar.jsx' 
+import Footer from './components/shared/Footer.js'
+import Diplomas from './components/Diplomas.js'
 
 function App() {
   return (
