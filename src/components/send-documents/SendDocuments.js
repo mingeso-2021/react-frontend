@@ -1,9 +1,12 @@
 import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../assets/css/SendDocuments.css'
+import '../../assets/css/SendDocuments.css'
 
-import logo_usach from '../assets/images/logo_usach.png'
+import StyledDropzone from './Dropzone.js'
+
+import logo_usach from '../../assets/images/logo_usach.png'
+
 
 const SendDocuments = () => {
 
@@ -20,7 +23,7 @@ const SendDocuments = () => {
         <label for="formFileMultiple" className="form-label">Seleccione sus documentos</label>
       </div>
       <div className="row justify-content-center">
-        <input className="form-control" type="file" style={{width:"500px"}} id="formFileMultiple" multiple />
+      <StyledDropzone />
       </div>
       <div className="row justify-content-center">
         <button className="btn btn-size text-center">Enviar</button>

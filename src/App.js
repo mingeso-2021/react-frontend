@@ -1,18 +1,49 @@
+// Native components
+import React from 'react';
+import { BrowserRouter as Router,Route } from 'react-router-dom'
+// Styles
 import './assets/css/App.css';
-
-import SendDocuments  from './components/SendDocuments.js'
-import NavBar from './components/NavBar.jsx' 
-import Footer from './components/Footer.js'
+// Import components
+import SendDocuments  from './components/send-documents/SendDocuments.js'
+import NavBar from './components/shared/NavBar.jsx' 
+import Footer from './components/shared/Footer.js'
+import Diplomas from './components/Diplomas.js'
 
 function App() {
   return (
-    <div className="page-container  background">
-      <div className="content-wrap">
-          <NavBar />
-          <SendDocuments />
-      </div>
-      <Footer />
-    </div>
+    <Router>
+      <NavBar/>
+        <Route exact path = "/" render = {() => {
+          return(
+            <div className="page-container background" >
+              <div className="content-wrap">
+                
+                <SendDocuments />
+                <div className="foot">
+                <Footer /> 
+                </div>
+              </div>
+            </div> 
+          )  
+        }}>
+        </Route> 
+        <Route exact path="/diplomas" render = {() => {
+          return(
+            <div className="page-container background" >
+              <div className="content-wrap">
+                
+                <Diplomas />
+                <div className="foot">
+                <Footer /> 
+                </div>
+              </div>
+            </div> 
+          )  
+        }}>
+        </Route>
+      
+    </Router> 
+      
   );
 }
 

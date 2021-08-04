@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap'
-import '../assets/css/NavBar.css'
+
+import '../../assets/css/NavBar.css'
 
 class navBar extends Component {
 
@@ -11,7 +12,8 @@ class navBar extends Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="">Features</Nav.Link>
+            <Nav.Link href="/">SubirArchivos</Nav.Link>
+            <Nav.Link href="/diplomas">Diplomas</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">More deets</Nav.Link>

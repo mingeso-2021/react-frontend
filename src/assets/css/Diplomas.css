@@ -1,0 +1,10 @@
+.btn-size{
+    width: 100px;
+}
+.container-main{
+    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
