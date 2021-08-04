@@ -6,7 +6,7 @@ import logo_footer from '../assets/images/logo_footer.png'
 const Footer = () => {
 
     return (
-        <div className="main-footer">
+        <div className="main-footer mt-5">
             <div className="container">
                 <div className="row justify-content-center padding-row-footer">
                     {/* Column 1 */}

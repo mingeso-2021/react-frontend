@@ -6,7 +6,11 @@
 }
 
 .content-wrap {
-  flex: 1;
+  min-height: 100%;
+    height: auto !important;
+    height: 100%;
+   
+    
 }
 
 
@@ -18,4 +22,9 @@
   left: 0;
   right: 0;
   text-align: center;
+}
+
+.foot{
+  
+  height: 195px;
 }
