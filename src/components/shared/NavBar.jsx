@@ -14,6 +14,7 @@ class navBar extends Component {
           <Nav className="me-auto">
             <Nav.Link href="/">SubirArchivos</Nav.Link>
             <Nav.Link href="/diplomas">Diplomas</Nav.Link>
+            <Nav.Link href="/evaluar">Evaluar</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">More deets</Nav.Link>

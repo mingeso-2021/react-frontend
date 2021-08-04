@@ -8,6 +8,8 @@ import SendDocuments  from './components/send-documents/SendDocuments.js'
 import NavBar from './components/shared/NavBar.jsx' 
 import Footer from './components/shared/Footer.js'
 import Diplomas from './components/Diplomas.js'
+import Evaluate from './components/Evaluate.js'
+
 
 function App() {
   return (
@@ -34,6 +36,22 @@ function App() {
                 
                 <Diplomas />
                 <div className="foot">
+                
+                <Footer /> 
+                </div>
+              </div>
+            </div> 
+          )  
+        }}>
+        </Route>
+        <Route exact path="/evaluar" render = {() => {
+          return(
+            <div className="page-container background" >
+              <div className="content-wrap">
+                
+                <Evaluate />
+                <div className="foot">
+                
                 <Footer /> 
                 </div>
               </div>
@@ -42,7 +60,8 @@ function App() {
         }}>
         </Route>
       
-    </Router> 
+      
+     </Router> 
       
   );
 }
