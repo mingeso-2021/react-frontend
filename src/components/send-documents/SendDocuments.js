@@ -1,35 +1,59 @@
-import React from 'react';
+// native imports
+import { React, Component } from 'react';
+// npm modules
+import StyledDropzone from './Dropzone.js';
+import axios from 'axios';
+// style
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../assets/css/SendDocuments.css';
+// other imports
+import logo_usach from '../../assets/images/logo_usach.png';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../../assets/css/SendDocuments.css'
 
-import StyledDropzone from './Dropzone.js'
+class SendDocuments extends Component {
 
-import logo_usach from '../../assets/images/logo_usach.png'
+  constructor() {
+    super();
+    this.baseUrl = this.baseUrl = process.env.REACT_APP_BASE_URL;;
+  }
 
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log( e );
+    
+    axios.post(this.baseUrl + "/upload/file", {
+        // Insertar peticion
+    })
+    .then( response => {
+        // Aqui la respuesta (si es necesaria)
+    })
+    .catch( err => console.log(err) );
+  };
 
-const SendDocuments = () => {
-
-  return (
-    <div className="container position-form form-size shadow p-3 mb-5 bg-white rounded"> 
-      <div className="row justify-content-center">
-        <img
-          alt=""
-          src={logo_usach}
-          className="img-box-logo"
-        />
-      </div>
-      <div className="row justify-content-center">
-        <label for="formFileMultiple" className="form-label">Seleccione sus documentos</label>
-      </div>
-      <div className="row justify-content-center">
-      <StyledDropzone />
-      </div>
-      <div className="row justify-content-center">
-        <button className="btn btn-size text-center">Enviar</button>
-      </div>
-    </div>
-  )
+  render() {
+    return (
+      <div className="container position-form form-size shadow p-3 mb-5 bg-white rounded"> 
+        <div className="row justify-content-center">
+          <img
+            alt=""
+            src={logo_usach}
+            className="img-box-logo"
+          />
+        </div>
+        <div className="row justify-content-center">
+          <label for="formFileMultiple" className="form-label">Seleccione sus documentos</label>
+        </div>
+        <div className="row justify-content-center">
+          <StyledDropzone
+            onDrop = {this.onDrop}
+          ></StyledDropzone>
+        </div>
+        <div className="row justify-content-center">
+          <button className="btn btn-size text-center" onClick = {this.handleSubmit.bind(this)}>Enviar</button>
+        </div>
+      </div>  
+    )
+  }
 }
 
   
