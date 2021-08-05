@@ -15,6 +15,7 @@ class navBar extends Component {
             <Nav.Link href="/">SubirArchivos</Nav.Link>
             <Nav.Link href="/diplomas">Diplomas</Nav.Link>
             <Nav.Link href="/evaluar">Evaluar</Nav.Link>
+            <Nav.Link href="/DescargarArchivos">Postulantes</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">More deets</Nav.Link>

@@ -9,6 +9,7 @@ import NavBar from './components/shared/NavBar.jsx'
 import Footer from './components/shared/Footer.js'
 import Diplomas from './components/Diplomas.js'
 import Evaluate from './components/Evaluate.js'
+import DescargarArchivos from './components/DescargarArchivos.js'
 
 
 function App() {
@@ -59,8 +60,21 @@ function App() {
           )  
         }}>
         </Route>
-      
-      
+        <Route exact path="/DescargarArchivos" render = {() => {
+          return(
+            <div className="page-container background" >
+              <div className="content-wrap">
+                
+                <DescargarArchivos />
+                <div className="foot">
+                
+                <Footer /> 
+                </div>
+              </div>
+            </div> 
+          )  
+        }}>
+        </Route>
      </Router> 
       
   );
