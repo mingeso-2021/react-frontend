@@ -4,16 +4,15 @@ import swal from 'sweetalert';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/DescargarArchivos.css'
 
+// const state = {
+//     users: ''
+// }
 
-const state = {
-    users: ''
-}
-
-const index = {
-    name: '',
-    mail: '',
-    diploma: ''
-}
+// const index = {
+//     name: '',
+//     mail: '',
+//     diploma: ''
+// }
 
 // Example data
 const res = [{

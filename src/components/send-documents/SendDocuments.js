@@ -1,14 +1,33 @@
-import React from 'react';
+// native imports
+import { React } from 'react';
+// npm modules
+import 'react-dropzone-uploader/dist/styles.css'
+import Dropzone from 'react-dropzone-uploader'
+// style
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../assets/css/SendDocuments.css';
+// other imports
+import logo_usach from '../../assets/images/logo_usach.png';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../../assets/css/SendDocuments.css'
 
-import StyledDropzone from './Dropzone.js'
-
-import logo_usach from '../../assets/images/logo_usach.png'
-
+// define backend destination url 
+const baseUrl = process.env.REACT_APP_BASE_URL
 
 const SendDocuments = () => {
+
+  // URL Destination
+  const getUploadParams = ({ meta }) => { return { url: baseUrl + "/uploadfiles/upload/" } }
+
+  // 
+  const handleChangeStatus = ({ meta }, status) => {
+    console.log(status, meta)
+  }
+
+  // 
+  const handleSubmit = (files, allFiles) => {
+    console.log(files.map(f => f.meta))
+    allFiles.forEach(f => f.remove())
+  } 
 
   return (
     <div className="container position-form form-size shadow p-3 mb-5 bg-white rounded"> 
@@ -20,13 +39,16 @@ const SendDocuments = () => {
         />
       </div>
       <div className="row justify-content-center">
-        <label for="formFileMultiple" className="form-label">Seleccione sus documentos</label>
+        <label className="text-size">Seleccione sus documentos</label>
       </div>
       <div className="row justify-content-center">
-      <StyledDropzone />
-      </div>
-      <div className="row justify-content-center">
-        <button className="btn btn-size text-center">Enviar</button>
+        <Dropzone
+        accept="application/pdf"
+        getUploadParams={getUploadParams}
+        onChangeStatus={handleChangeStatus}
+        onSubmit={handleSubmit}
+        styles={{ dropzone: { minHeight: 200, maxHeight: 250, width: 900} }}
+      />
       </div>
     </div>
   )
