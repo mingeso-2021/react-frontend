@@ -1,20 +1,39 @@
 
 import swal from 'sweetalert';
 import React, { useEffect, useState } from 'react';
-
+import axios from 'axios';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/Evaluate.css'
 
 
-const baseUrl = process.env.REACT_APP_BASE_URL
 
+const baseUrl = process.env.REACT_APP_BASE_URL
+const aprobar = 1
+const reprobar = 0
 const Evaluate = () =>{
 
-    
+    const resAprobar = async (id) =>{
+        await axios.put(baseUrl + "postulations/update/" + id,
+            {
+                status : aprobar
+            }
+        )
+        document.getElementById(id).innerHTML = "APROBADO"
+    }
 
-    const  aprobarSolicitud = () =>{
-        if(postulations.status=== 0){
+    const resReprobar = async (id) =>{
+        await axios.put(baseUrl + "postulations/update/" + id,
+            {
+                status : reprobar
+            }
+        )
+        document.getElementById(id).innerHTML = "RECHAZADO"
+    }
+
+
+    const  aprobarSolicitud = (status,id) =>{
+        if(status=== 0){
         swal({
             title: "Aceptar",
             text: "¿Estás seguro que deseas modificar la solicitud y APROBARLA?",
@@ -26,7 +45,7 @@ const Evaluate = () =>{
                     text: 'La solicitud ha sido aprobada',
                     icon: "success"
                 })
-                postulations.status = 1
+                resAprobar(id)
                 
             }
         })
@@ -43,14 +62,14 @@ const Evaluate = () =>{
                         text: 'La solicitud ha sido aprobada',
                         icon: "success"
                     })
-                    postulations.status = 1
+                    resAprobar(id)
                     
                 }
             })
             }
     }
-    const  rechazarSolicitud = () =>{
-        if(postulations.status=== 1){
+    const  rechazarSolicitud = (status,id) =>{
+        if(status=== 1){
         swal({
             title: "Rechazar",
             text: "¿Estás seguro que deseas modificar la solicitud y RECHAZARLA?",
@@ -62,7 +81,7 @@ const Evaluate = () =>{
                     text: 'La solicitud ha sido rechazada',
                     icon: "success"
                 })
-                postulations.status = 0
+                resReprobar(id)
                 
             }
         })
@@ -79,29 +98,29 @@ const Evaluate = () =>{
                         text: 'La solicitud ha sido rechazada',
                         icon: "success"
                     })
-                    postulations.status = 0
+                    resReprobar(id)
                    
                 }
             })
             }
     }
 
+    
+
     const [postulations,setPostulations] = useState()
     const [postulants,setPostulants] = useState()
     const [diplomas,setDiplomas] = useState()
 
     const fetchEvaluate = async () =>{
-        const response = await fetch(baseUrl + "/postulations/getall");
-        const responseJson = await response.json()
-        const responsePostulant = await fetch(baseUrl + "/postulants/getall");
-        const responseJsonPostulant = await responsePostulant.json()
-        const responseDiplomas = await fetch(baseUrl + "/diplomas/getall" );
-        const responseJsonDiplomas = await responseDiplomas.json()
-        setPostulations(responseJson)
-        setPostulants(responseJsonPostulant)
-        setDiplomas(responseJsonDiplomas)
+        const response = await axios.get(baseUrl + "/postulations/getall");
+        const responsePostulant = await axios.get(baseUrl + "/postulants/getall");
+        const responseDiplomas = await axios.get(baseUrl + "/diplomas/getall" );
+        setPostulations(response.data)
+        setPostulants(responsePostulant.data)
+        setDiplomas(responseDiplomas.data)
     }
 
+    
    
 
       
@@ -126,7 +145,7 @@ const Evaluate = () =>{
                         <th>Nombre</th>
                         <th>Mail</th>
                         <th>Diploma</th>
-                        <th>Aceptar</th>
+                        <th>Aprobar</th>
                         <th>Rechazar</th>
                         <th>Estado</th>
                     </tr>
@@ -144,12 +163,12 @@ const Evaluate = () =>{
                                         {!diplomas? '': getData(diplomas,value.id_diploma).name}
                                     </td>
                                     <td key = "Accept">
-                                        <button type="button" className="btn btn-success" onClick = {()=>aprobarSolicitud()}>Success</button>
+                                        <button type="button" className="btn btn-success" onClick = {()=>aprobarSolicitud(value.status,value.id)}>Aprobar</button>
                                     </td>
                                     <td key = "Reject">
-                                    <button className="btn btn-danger" onClick = {()=>rechazarSolicitud()}>Rechazar</button>
+                                    <button className="btn btn-danger" onClick = {()=>rechazarSolicitud(value.status,value.id)}>Rechazar</button>
                                     </td>
-                                    <td key = "status">   
+                                        <td id = {value.id} key = "status"> 
                                     </td>
                                 </tr>
                             )
