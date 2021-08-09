@@ -84,7 +84,7 @@ const TableBody = () => {
                         {value.diploma}
                     </td>
                     <td>
-                      <button type="button" class="btn btn-success" to={baseUrl + "/uploadfiles/upload/" + value.name + "/" + value.diploma + ".pdf"} onClick = {()=>descargarArchivos()}>Descargar</button>
+                      <a type="button" class="btn btn-success" href={baseUrl + "/uploadfiles/upload/" + value.name + "/" + value.diploma + ".pdf"} onClick = {()=>descargarArchivos()} download>Descargar</a>
                     </td>
                 </tr>
             )
