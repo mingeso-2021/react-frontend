@@ -1,5 +1,6 @@
 
 import swal from 'sweetalert';
+import {Redirect} from 'react-router';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/DescargarArchivos.css'
@@ -19,17 +20,19 @@ const res = [{
     "id": "1",
     "name": "Nombre1",
     "mail": "nombre1@mail.com",
-    "diploma": ["Diploma 1" , "-Diploma 11"]
+    "diploma": "Diploma 1"
   },
   {
     "id": "2",
     "name": "Nombre2",
     "mail": "nombre2@mail.com",
-    "diploma": ["Diploma 2" , "-Diploma 22"]
+    "diploma": "Diploma 2"
   },
 ]
+const baseUrl = process.env.REACT_APP_BASE_URL
 
 const  descargarArchivos = () =>{
+    
     swal({
         text: "Descargando archivos",
         icon: "success"
@@ -81,7 +84,7 @@ const TableBody = () => {
                         {value.diploma}
                     </td>
                     <td>
-                      <button type="button" class="btn btn-success" onClick = {()=>descargarArchivos()}>Descargar</button>
+                      <button type="button" class="btn btn-success" to={baseUrl + "/uploadfiles/upload/" + value.name + "/" + value.diploma + ".pdf"} onClick = {()=>descargarArchivos()}>Descargar</button>
                     </td>
                 </tr>
             )
