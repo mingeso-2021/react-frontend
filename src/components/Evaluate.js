@@ -9,8 +9,8 @@ import '../assets/css/Evaluate.css'
 
 
 const baseUrl = process.env.REACT_APP_BASE_URL
-const aprobar = 1
-const reprobar = 0
+const aprobar = 'aprobado'
+const reprobar = 'rechazado'
 const Evaluate = () =>{
 
     const resAprobar = async (id) =>{
@@ -30,10 +30,11 @@ const Evaluate = () =>{
         )
         document.getElementById(id).innerHTML = "RECHAZADO"
     }
+    
 
 
     const  aprobarSolicitud = (status,id) =>{
-        if(status=== 0){
+        if(status=== 'RECHAZADO'){
         swal({
             title: "Aceptar",
             text: "¿Estás seguro que deseas modificar la solicitud y APROBARLA?",
@@ -69,7 +70,7 @@ const Evaluate = () =>{
             }
     }
     const  rechazarSolicitud = (status,id) =>{
-        if(status=== 1){
+        if(status=== 'APROBADO'){
         swal({
             title: "Rechazar",
             text: "¿Estás seguro que deseas modificar la solicitud y RECHAZARLA?",
@@ -107,7 +108,7 @@ const Evaluate = () =>{
 
     
 
-    let [postulations,setPostulations] = useState()
+    const [postulations,setPostulations] = useState()
     const [postulants,setPostulants] = useState()
     const [diplomas,setDiplomas] = useState()
 
@@ -167,7 +168,8 @@ const Evaluate = () =>{
                                     <td key = "Reject">
                                         <button className="btn btn-danger" onClick = {()=>rechazarSolicitud(value.status,value.id)}>Rechazar</button>
                                     </td>
-                                    <td id = {value.id} key = "status"> 
+                                    <td id = {value.id} key = "status" > 
+                                        {value.status.toUpperCase()}
                                     </td>
                                 </tr>
                             )
