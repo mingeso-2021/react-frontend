@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/Diplomas.css'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = "http://143.110.148.226:1818"
 const Diplomas = () => {
     const [postulations,setPostulations] = useState()
     const [evaluators,setEvaluators] = useState()
