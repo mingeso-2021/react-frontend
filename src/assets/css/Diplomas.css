@@ -1,4 +1,4 @@
-.btn-size{
+/* .btn-size{
     width: 100px;
 }
 .container-main{
@@ -7,4 +7,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+
+.banner-bg {
+  /* background-color: rgba(7, 29, 73, 0.9);
+  */
+  background-color:#394049;
+}
+
+.banner-img {
+  width: 350px;
+}
+
+.bg-colour {
+  background-color: #F5F5F5;
 }

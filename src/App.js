@@ -8,7 +8,7 @@ import './assets/css/App.css';
 import SendDocuments  from './components/send-documents/SendDocuments.js'
 import NavBar from './components/shared/NavBar.jsx' 
 import Footer from './components/shared/Footer.js'
-import Diplomas from './components/Diplomas.js'
+import Diplomas from './components/diploma/Diplomas.js'
 import Evaluate from './components/Evaluate.js'
 import DescargarArchivos from './components/DescargarArchivos.js'
 
@@ -17,21 +17,7 @@ function App() {
   return (
     <Router>
       <NavBar/>
-        <Route exact path = "/" render = {() => {
-          return(
-            <div className="page-container background" >
-              <div className="content-wrap">
-                
-                <SendDocuments />
-                <div className="foot">
-                <Footer /> 
-                </div>
-              </div>
-            </div> 
-          )  
-        }}>
-        </Route> 
-        <Route exact path="/diplomas" render = {() => {
+        <Route exact path="/" render = {() => {
           return(
             <div className="page-container background" >
               <div className="content-wrap">
@@ -46,6 +32,20 @@ function App() {
           )  
         }}>
         </Route>
+        <Route exact path = "/postular" render = {() => {
+          return(
+            <div className="page-container background" >
+              <div className="content-wrap">
+                
+                <SendDocuments />
+                <div className="foot">
+                <Footer /> 
+                </div>
+              </div>
+            </div> 
+          )  
+        }}>
+        </Route> 
         <Route exact path="/evaluar" render = {() => {
           return(
             <div className="page-container background" >
@@ -61,23 +61,7 @@ function App() {
           )  
         }}>
         </Route>
-        <Route exact path="/DescargarArchivos" render = {() => {
-          return(
-            <div className="page-container background" >
-              <div className="content-wrap">
-                
-                <DescargarArchivos />
-                <div className="foot">
-                
-                <Footer /> 
-                </div>
-              </div>
-            </div> 
-          )  
-        }}>
-        </Route>
      </Router> 
-      
   );
 }
 
