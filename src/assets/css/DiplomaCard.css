@@ -1,0 +1,14 @@
+.card-img-size {
+    width: 250px;
+}
+  
+.card-size {
+    align-items: center;
+    width: 25rem;
+    height: 30rem;
+}
+
+.card-img-size {
+    height: 15rem;
+    width: 25rem;
+}
