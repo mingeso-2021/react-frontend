@@ -11,7 +11,7 @@ import logo_usach from '../../assets/images/logo_usach.png';
 
 
 // define backend destination url 
-// const baseUrl = process.env.REACT_APP_BASE_URL_2
+// const baseUrl = process.env.REACT_APP_BASE_URL
 const baseUrl = "http://143.110.148.226:8000"
 
 const SendDocuments = () => {

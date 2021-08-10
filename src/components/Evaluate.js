@@ -5,32 +5,34 @@ import axios from 'axios';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/Evaluate.css'
-
+// other imports
+import nut from '../assets/images/tuerca.png';
 
 
 const baseUrl = "http://143.110.148.226:1818"
 const aprobar = 'aprobado'
 const reprobar = 'rechazado'
-const Evaluate = () =>{
+const mytrolling = "https://img.favpng.com/14/6/15/common-raven-cartoon-owasp-png-favpng-yihznF1Q0pnRXrZ28EbYdVYW8.jpg"
 
-    const resAprobar = async (id) =>{
+const Evaluate = () => {
+
+    const resAprobar = async (id) => {
         await axios.put(baseUrl + "postulations/update/" + id,
             {
-                status : aprobar
+                status: aprobar
             }
         )
         document.getElementById(id).innerHTML = "APROBADO"
     }
 
-    const resReprobar = async (id) =>{
+    const resReprobar = async (id) => {
         await axios.put(baseUrl + "postulations/update/" + id,
             {
-                status : reprobar
+                status: reprobar
             }
         )
         document.getElementById(id).innerHTML = "RECHAZADO"
     }
-    
 
 
     const  aprobarSolicitud = (status,id) =>{
@@ -51,12 +53,12 @@ const Evaluate = () =>{
             }
         })
         }
-        else{
+        else {
             swal({
                 title: "Aceptar",
                 text: "¿Estás seguro que deseas APROBAR la solicitud?",
                 icon: "warning",
-                buttons: ["Cancelar","Aceptar"]
+                buttons: ["Cancelar", "Aceptar"]
             }).then(respuesta => {
                 if (respuesta) {
                     swal({
@@ -64,10 +66,10 @@ const Evaluate = () =>{
                         icon: "success"
                     })
                     resAprobar(id)
-                    
+
                 }
             })
-            }
+        }
     }
     const  rechazarSolicitud = (status,id) =>{
         if(status=== 'aprobado'){
@@ -87,12 +89,12 @@ const Evaluate = () =>{
             }
         })
         }
-        else{
+        else {
             swal({
                 title: "Aceptar",
                 text: "¿Estás seguro que deseas RECHAZAR la solicitud?",
                 icon: "warning",
-                buttons: ["Cancelar","Aceptar"]
+                buttons: ["Cancelar", "Aceptar"]
             }).then(respuesta => {
                 if (respuesta) {
                     swal({
@@ -100,75 +102,96 @@ const Evaluate = () =>{
                         icon: "success"
                     })
                     resReprobar(id)
-                   
+
                 }
             })
-            }
+        }
     }
 
-    
 
-    const [postulations,setPostulations] = useState()
-    const [postulants,setPostulants] = useState()
-    const [diplomas,setDiplomas] = useState()
 
-    const fetchEvaluate = async () =>{
+    const [postulations, setPostulations] = useState()
+    const [postulants, setPostulants] = useState()
+    const [diplomas, setDiplomas] = useState()
+    const [documents, setDocuments] = useState()
+
+    const fetchEvaluate = async () => {
         const response = await axios.get(baseUrl + "/postulations/getall");
         const responsePostulant = await axios.get(baseUrl + "/postulants/getall");
-        const responseDiplomas = await axios.get(baseUrl + "/diplomas/getall" );
+        const responseDiplomas = await axios.get(baseUrl + "/diplomas/getall");
+        // const responseDocuments = await axios.get(baseUrl + "/uploadfiles/upload/" + document );
         setPostulations(response.data)
         setPostulants(responsePostulant.data)
         setDiplomas(responseDiplomas.data)
+        // setDocuments(responseDocuments.data)
     }
 
-    
-   
 
-      
-    useEffect(()=>{
+    useEffect(() => {
         fetchEvaluate()
-    },[])
+    }, [])
 
-    const getData=(data,id)=>{
+    const getData = (data, id) => {
         for (let value of data) {
-            if(value.id === id){
+            if (value.id === id) {
                 return value
             }
         }
     }
-    
+
     return (
-        <div>
-            <table className="table table-bordered table-hover">
+        <div className="container margin-container">
+            <div className="row background-title shadow p-3 justify-content-between">
+                <div className="col-11 margin-text">
+                    <div className="row">
+                        Lista de postulantes
+                    </div>
+                </div>
+                <div className="col">
+                    <a href={mytrolling} target="_blank">
+                        <img
+                            alt=""
+                            src={nut}
+                            className="img-banner-size"
+                        />
+                    </a>
+                </div>
+            </div>
+            <hr />
+            <table className="table table-bordered table-hover mt-2">
                 <thead className="thead-dark">
                     <tr>
                         <th>Nombre</th>
-                        <th>Mail</th>
+                        <th>Email</th>
                         <th>Diploma</th>
+                        <th>Documentos</th>
                         <th>Aprobar</th>
                         <th>Rechazar</th>
                         <th>Estado</th>
                     </tr>
-                    {!postulations?'':
-                        postulations.map((value,index) =>{
-                            return(
+                    {!postulations ? '' :
+                        postulations.map((value, index) => {
+                            return (
                                 <tr>
-                                    <td key ="name">
-                                        {!postulants? '': getData(postulants,value.id_postulant).name}
+                                    <td key="name">
+                                        {!postulants ? '' : getData(postulants, value.id_postulant).name}
                                     </td>
-                                    <td key = "mail">
-                                        {!postulants? '': getData(postulants,value.id_postulant).email}
+                                    <td key="mail">
+                                        {!postulants ? '' : getData(postulants, value.id_postulant).email}
                                     </td>
-                                    <td key = "diploma">
-                                        {!diplomas? '': getData(diplomas,value.id_diploma).name}
+                                    <td key="diploma">
+                                        {!diplomas ? '' : getData(diplomas, value.id_diploma).name}
                                     </td>
-                                    <td key = "Accept">
-                                        <button type="button" className="btn btn-success" onClick = {()=>aprobarSolicitud(value.status,value.id)}>Aprobar</button>
+                                    <td>
+                                        Algo
                                     </td>
-                                    <td key = "Reject">
-                                        <button className="btn btn-danger" onClick = {()=>rechazarSolicitud(value.status,value.id)}>Rechazar</button>
+                                    <td key="Accept">
+                                        <button type="button" className="btn btn-success" onClick={() => aprobarSolicitud(value.status, value.id)}>Aprobar</button>
                                     </td>
-                                    <td id = {value.id} key = "status" > 
+                                    <td key="Reject">
+                                        <button className="btn btn-danger" onClick={() => rechazarSolicitud(value.status, value.id)}>Rechazar</button>
+                                    </td>
+                                    <td id={value.id} key="status" >
                                         {value.status.toUpperCase()}
                                     </td>
                                 </tr>
