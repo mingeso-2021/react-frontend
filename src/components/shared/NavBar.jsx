@@ -12,10 +12,10 @@ class NavBar extends Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Postular</Nav.Link>
-            <Nav.Link href="/diplomas">Diplomas</Nav.Link>
+            <Nav.Link href="/" name="Postulation">Postular</Nav.Link>
+            <Nav.Link href="/diplomas" name="Diplomas">Diplomas</Nav.Link>
             {/* <Nav.Link href="/DescargarArchivos">Postulantes</Nav.Link> */}
-            <Nav.Link href="/evaluar">Evaluar</Nav.Link>
+            <Nav.Link href="/evaluar" name="Evaluate">Evaluar</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">More deets</Nav.Link>

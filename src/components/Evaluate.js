@@ -154,7 +154,7 @@ const Evaluate = () => {
     return (
         <div className="container margin-container">
             <div className="row background-title shadow p-3 justify-content-between">
-                <div className="col margin-text text-left">
+                <div className="col margin-text text-left" id="postulantes">
                     Lista de postulantes
                 </div>
                 <div className="col text-right">
@@ -194,10 +194,10 @@ const Evaluate = () => {
                                         {!diplomas ? '' : getData(diplomas, value.id_diploma).name}
                                     </td>
                                     <td>
-                                       <button type = "button" onClick={ () => getDocument("Francisco", "2.pdf") }>Descargar</button>
+                                       <button id={index} name="Download" type = "button" onClick={ () => getDocument("Francisco", "2.pdf") }>Descargar</button>
                                     </td>
                                     <td key="Accept">
-                                        <button type="button" className="btn btn-success" onClick={() => aprobarSolicitud(value.status, value.id)}>Aprobar</button>
+                                        <button name="Accept" type="button" className="btn btn-success" onClick={() => aprobarSolicitud(value.status, value.id)}>Aprobar</button>
                                     </td>
                                     <td key="Reject">
                                         <button className="btn btn-danger" onClick={() => rechazarSolicitud(value.status, value.id)}>Rechazar</button>
