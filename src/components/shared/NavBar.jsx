@@ -3,7 +3,7 @@ import { Container, Navbar, Nav } from 'react-bootstrap'
 
 import '../../assets/css/NavBar.css'
 
-class navBar extends Component {
+class NavBar extends Component {
 
     render() {
         return <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -13,7 +13,7 @@ class navBar extends Component {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Postular</Nav.Link>
-            <Nav.Link href="/diplomas">Diplomas</Nav.Link>
+            {/* <Nav.Link href="/diplomas">Diplomas</Nav.Link> */}
             <Nav.Link href="/DescargarArchivos">Postulantes</Nav.Link>
             <Nav.Link href="/evaluar">Evaluar</Nav.Link>
           </Nav>
@@ -28,4 +28,4 @@ class navBar extends Component {
 
 }
 
-export default navBar;
+export default NavBar;

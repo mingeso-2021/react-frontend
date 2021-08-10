@@ -107,7 +107,7 @@ const Evaluate = () =>{
 
     
 
-    const [postulations,setPostulations] = useState()
+    let [postulations,setPostulations] = useState()
     const [postulants,setPostulants] = useState()
     const [diplomas,setDiplomas] = useState()
 
@@ -129,11 +129,10 @@ const Evaluate = () =>{
     },[])
 
     const getData=(data,id)=>{
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].id === id) {
-                return data[i]
+        for (let value of data) {
+            if(value.id === id){
+                return value
             }
-            
         }
     }
     
@@ -166,9 +165,9 @@ const Evaluate = () =>{
                                         <button type="button" className="btn btn-success" onClick = {()=>aprobarSolicitud(value.status,value.id)}>Aprobar</button>
                                     </td>
                                     <td key = "Reject">
-                                    <button className="btn btn-danger" onClick = {()=>rechazarSolicitud(value.status,value.id)}>Rechazar</button>
+                                        <button className="btn btn-danger" onClick = {()=>rechazarSolicitud(value.status,value.id)}>Rechazar</button>
                                     </td>
-                                        <td id = {value.id} key = "status"> 
+                                    <td id = {value.id} key = "status"> 
                                     </td>
                                 </tr>
                             )
