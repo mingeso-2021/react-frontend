@@ -14,7 +14,7 @@ class NavBar extends Component {
           <Nav className="me-auto">
             <Nav.Link href="/">Postular</Nav.Link>
             <Nav.Link href="/diplomas">Diplomas</Nav.Link>
-            <Nav.Link href="/DescargarArchivos">Postulantes</Nav.Link>
+            {/* <Nav.Link href="/DescargarArchivos">Postulantes</Nav.Link> */}
             <Nav.Link href="/evaluar">Evaluar</Nav.Link>
           </Nav>
           <Nav>

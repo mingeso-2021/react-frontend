@@ -1,19 +1,8 @@
 
 import swal from 'sweetalert';
-import {Redirect} from 'react-router';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/DescargarArchivos.css'
-
-// const state = {
-//     users: ''
-// }
-
-// const index = {
-//     name: '',
-//     mail: '',
-//     diploma: ''
-// }
 
 // Example data
 const res = [{
@@ -31,7 +20,7 @@ const res = [{
 ]
 const baseUrl = process.env.REACT_APP_BASE_URL
 
-const  descargarArchivos = () =>{
+const  Archivos = () =>{
     
     swal({
         text: "Descargando archivos",
@@ -39,8 +28,7 @@ const  descargarArchivos = () =>{
     })
 }
 
-const Archivos = (props) => {
-  const {} = props;
+const descargarArchivos = () => {
   return (
     <div>
       <table className="table table-bordered table-hover">
@@ -84,7 +72,7 @@ const TableBody = () => {
                         {value.diploma}
                     </td>
                     <td>
-                      <a type="button" class="btn btn-success" href={baseUrl + "/uploadfiles/upload/" + value.name + "/" + value.diploma + ".pdf"} onClick = {()=>descargarArchivos()} download>Descargar</a>
+                      <a type="button" class="btn btn-success" href={baseUrl + "/uploadfiles/upload/" + value.name + "/" + value.diploma + ".pdf"} onClick = {()=>Archivos()} download>Descargar</a>
                     </td>
                 </tr>
             )
@@ -93,4 +81,4 @@ const TableBody = () => {
     );
 }
   
-export default Archivos;
+export default descargarArchivos;

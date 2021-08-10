@@ -9,3 +9,27 @@
     background-color: #bb2d3b !important;
 
 }
+
+.margin-container {
+    margin-top: 2%;
+}
+
+.background-title {
+    justify-items: left;
+    font-size: 36px;
+    color: rgba(57, 64, 73);
+}
+
+.img-banner-size {
+    height: 50px;
+    width: auto;
+}
+
+.margin-text {
+    justify-content: flex-start;
+    margin-left: 20px
+}
+
+.margin-img {
+    justify-content: flex-end;
+}
