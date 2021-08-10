@@ -2,6 +2,7 @@
 import swal from 'sweetalert';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import FileDownload from 'js-file-download';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/Evaluate.css'
@@ -10,6 +11,7 @@ import nut from '../assets/images/tuerca.png';
 
 
 const baseUrl = "http://143.110.148.226:1818"
+const fileUrl = "http://143.110.148.226:8000"
 const aprobar = 'aprobado'
 const reprobar = 'rechazado'
 const mytrolling = "https://img.favpng.com/14/6/15/common-raven-cartoon-owasp-png-favpng-yihznF1Q0pnRXrZ28EbYdVYW8.jpg"
@@ -113,17 +115,15 @@ const Evaluate = () => {
     const [postulations, setPostulations] = useState()
     const [postulants, setPostulants] = useState()
     const [diplomas, setDiplomas] = useState()
-    const [documents, setDocuments] = useState()
 
     const fetchEvaluate = async () => {
         const response = await axios.get(baseUrl + "/postulations/getall");
         const responsePostulant = await axios.get(baseUrl + "/postulants/getall");
         const responseDiplomas = await axios.get(baseUrl + "/diplomas/getall");
-        // const responseDocuments = await axios.get(baseUrl + "/uploadfiles/upload/" + document );
         setPostulations(response.data)
         setPostulants(responsePostulant.data)
         setDiplomas(responseDiplomas.data)
-        // setDocuments(responseDocuments.data)
+        
     }
 
 
@@ -138,6 +138,18 @@ const Evaluate = () => {
             }
         }
     }
+
+    const getDocument = async( name, value ) => {
+        axios({
+            url: `${fileUrl}/uploadfiles/files/${name}/${value}`,
+            method: 'GET',
+            responseType: 'blob', // Important
+          }).then((response) => {
+              const fileName = name + '-document.pdf';
+              FileDownload(response.data, fileName);
+        });
+    }
+
 
     return (
         <div className="container margin-container">
@@ -182,7 +194,7 @@ const Evaluate = () => {
                                         {!diplomas ? '' : getData(diplomas, value.id_diploma).name}
                                     </td>
                                     <td>
-                                        Algo
+                                       <button type = "button" onClick={ () => getDocument("Francisco", "2.pdf") }>Descargar</button>
                                     </td>
                                     <td key="Accept">
                                         <button type="button" className="btn btn-success" onClick={() => aprobarSolicitud(value.status, value.id)}>Aprobar</button>
