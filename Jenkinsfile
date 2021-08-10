@@ -16,7 +16,7 @@ pipeline {
 				dir("/var/lib/jenkins/workspace/dev-frontend"){
 				    withSonarQubeEnv('sonarqube') { // Will pick the global server connection you have configured
                         sh "${scannerHome}/bin/sonar-scanner"
-                    }
+                   	}
 				}
 			}
   		}
@@ -27,7 +27,6 @@ pipeline {
 			steps {
 				sh 'docker tag superadmin_react-frontend fanunez/frontend-mingeso'
 				sh 'docker push fanunez/frontend-mingeso/front'
-				}
 			}
 		}
 		stage('End') {
