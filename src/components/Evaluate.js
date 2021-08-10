@@ -34,7 +34,7 @@ const Evaluate = () =>{
 
 
     const  aprobarSolicitud = (status,id) =>{
-        if(status=== 'RECHAZADO'){
+        if(status=== 'rechazado'){
         swal({
             title: "Aceptar",
             text: "¿Estás seguro que deseas modificar la solicitud y APROBARLA?",
@@ -70,7 +70,7 @@ const Evaluate = () =>{
             }
     }
     const  rechazarSolicitud = (status,id) =>{
-        if(status=== 'APROBADO'){
+        if(status=== 'aprobado'){
         swal({
             title: "Rechazar",
             text: "¿Estás seguro que deseas modificar la solicitud y RECHAZARLA?",

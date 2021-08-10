@@ -1,6 +1,5 @@
 
 import swal from 'sweetalert';
-import {Redirect} from 'react-router';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/DescargarArchivos.css'
