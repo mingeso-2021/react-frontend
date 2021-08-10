@@ -20,6 +20,16 @@ pipeline {
 				}
 			}
   		}
+		stage('Docker deployment') {
+			agent {
+				docker { dockerfile true }
+			}
+			steps {
+				sh 'docker tag superadmin_react-frontend fanunez/frontend-mingeso'
+				sh 'docker push fanunez/frontend-mingeso/front'
+				}
+			}
+		}
 		stage('End') {
             steps {
                 echo "Deploying Backend"
