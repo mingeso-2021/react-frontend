@@ -39,11 +39,6 @@ pipeline {
                 }
             }
         }
-        stage('End') {
-            steps {
-                echo "Deploying Backend"
-            }
-        }
         post {
             always {
                 sh 'docker logout'
