@@ -28,8 +28,7 @@ const  Archivos = () =>{
     })
 }
 
-const descargarArchivos = (props) => {
-  const {} = props;
+const descargarArchivos = () => {
   return (
     <div>
       <table className="table table-bordered table-hover">
