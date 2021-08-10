@@ -19,7 +19,7 @@ const mytrolling = "https://img.favpng.com/14/6/15/common-raven-cartoon-owasp-pn
 const Evaluate = () => {
 
     const resAprobar = async (id) => {
-        await axios.put(baseUrl + "postulations/update/" + id,
+        await axios.put(baseUrl + "/postulations/update/" + id,
             {
                 status: aprobar
             }
@@ -28,7 +28,7 @@ const Evaluate = () => {
     }
 
     const resReprobar = async (id) => {
-        await axios.put(baseUrl + "postulations/update/" + id,
+        await axios.put(baseUrl + "/postulations/update/" + id,
             {
                 status: reprobar
             }
