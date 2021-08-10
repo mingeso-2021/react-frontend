@@ -1,8 +1,6 @@
 
 pipeline {
-	agent {
-		docker { image 'superadmin_react-frontend' }
-	}
+	agent any
 	environment{
 	    scannerHome = tool 'sonar-scanner';
 	}
@@ -23,6 +21,9 @@ pipeline {
 			}
   		}
 		stage('Docker deployment') {
+			agent {
+				docker { image 'superadmin_react-frontend' }
+			}
 			steps {
 				sh 'docker tag superadmin_react-frontend fanunez/frontend-mingeso'
 				sh 'docker push fanunez/frontend-mingeso/front'
