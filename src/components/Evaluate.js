@@ -146,7 +146,7 @@ const Evaluate = () => {
             responseType: 'blob', // Important
           }).then((response) => {
               const fileName = name + '-document.pdf';
-              FileDownload(response.data, fileName);
+              FileDownload(response.data, 'test-document.pdf');
         });
     }
 
