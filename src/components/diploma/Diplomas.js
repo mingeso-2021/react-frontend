@@ -37,7 +37,7 @@ const Diplomas = () => {
                 <div className="container mb-md-5">
                     <div className="row">
                         <div className="col">
-                            {DiplomaCard( data_cience, "Diplomado en Ciencia de Datos Aplicada" )}
+                            {DiplomaCard( data_cience, "Diplomado en Ciencia de Datos Aplicada (2021)" )}
                         </div>
                         <div className="col">
                             {DiplomaCard( cyber_security, "Diplomado en Ciberseguridad (Gestión, Técnico y Legal" )}
