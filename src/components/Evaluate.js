@@ -8,7 +8,7 @@ import '../assets/css/Evaluate.css'
 
 
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = "http://143.110.148.226:1818"
 const aprobar = 'aprobado'
 const reprobar = 'rechazado'
 const Evaluate = () =>{
