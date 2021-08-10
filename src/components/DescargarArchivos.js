@@ -5,16 +5,6 @@ import {Redirect} from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/DescargarArchivos.css'
 
-// const state = {
-//     users: ''
-// }
-
-// const index = {
-//     name: '',
-//     mail: '',
-//     diploma: ''
-// }
-
 // Example data
 const res = [{
     "id": "1",
@@ -39,8 +29,7 @@ const  descargarArchivos = () =>{
     })
 }
 
-const Archivos = (props) => {
-  const {} = props;
+const Archivos = () => {
   return (
     <div>
       <table className="table table-bordered table-hover">
