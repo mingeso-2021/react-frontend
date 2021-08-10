@@ -1,26 +1,27 @@
+
 pipeline {
-    agent any
-    environment{
-        scannerHome = tool 'sonar-scanner';
+	agent any
+	environment{
+	    scannerHome = tool 'sonar-scanner';
 		DOCKERHUB_CREDENTIALS = credentials('fanunez-dockerhub');
-    }
-    stages {
+	}
+	stages {
         stage('Init') {
             steps {
                 echo "Init"
             }
         }
-        stage('SonarQube analysis') {
-                steps {
-                echo "sonarqube with Frontend"
-                dir("/var/lib/jenkins/workspace/dev-frontend"){
-                    withSonarQubeEnv('sonarqube') { // Will pick the global server connection you have configured
+		stage('SonarQube analysis') {
+    			steps {
+				echo "sonarqube with Frontend"
+				dir("/var/lib/jenkins/workspace/dev-frontend"){
+				    withSonarQubeEnv('sonarqube') { // Will pick the global server connection you have configured
                         sh "${scannerHome}/bin/sonar-scanner"
-                       }
-                }
-            }
-          }
-        stage('Docker Build'){
+                   	}
+				}
+			}
+  		}
+		stage('Docker Build'){
             steps{
                 dir("/var/lib/jenkins/workspace/dev-frontend"){
                     sh 'docker build -t fanunez/frontend-mingeso .'
@@ -38,11 +39,16 @@ pipeline {
                     sh 'docker push fanunez/frontend-mingeso'
                 }
             }
-        }
-        post {
-            always {
-                sh 'docker logout'
+		}
+		stage('End') {
+            steps {
+                echo "Deploying Backend"
             }
         }
-    }
+	}
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
 }
