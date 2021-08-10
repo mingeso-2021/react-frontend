@@ -142,16 +142,15 @@ const Evaluate = () => {
     return (
         <div className="container margin-container">
             <div className="row background-title shadow p-3 justify-content-between">
-                <div className="col-11 margin-text">
-                    <div className="row">
-                        Lista de postulantes
-                    </div>
+                <div className="col margin-text text-left">
+                    Lista de postulantes
                 </div>
-                <div className="col">
+                <div className="col text-right">
                     <a href={mytrolling} target="_blank">
                         <img
                             alt=""
                             src={nut}
+                            width = "10"
                             className="img-banner-size"
                         />
                     </a>

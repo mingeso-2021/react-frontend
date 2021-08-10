@@ -29,3 +29,7 @@
     justify-content: flex-start;
     margin-left: 20px
 }
+
+.margin-img {
+    justify-content: flex-end;
+}
